@@ -147,7 +147,7 @@ function cal_Jaramillo20()
         
         Hs, Tp, θ_w = ncread(wavF, "Hs"), ncread(wavF, "Tp"), ncread(wavF, "Dir")
 
-        auxAng, auxDepth = similar(Hs), similar(Hs)
+        auxAng, auxDepth = zeros(length(Hs)), zeros(length(Hs))
         auxAng .= angBati
         auxDepth .= depth
 
