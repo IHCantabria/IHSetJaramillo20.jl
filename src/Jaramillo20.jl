@@ -150,9 +150,15 @@ function cal_Jaramillo20()
         auxAng, auxDepth = zeros(length(Hs)), zeros(length(Hs))
         auxAng .= angBati
         auxDepth .= depth
-
+        Hb = zeros(length(Hs))
+        θ_b = zeros(length(Hs))
+        depthb = zeros(length(Hs))
+        myIter = collect(1:100:length(Hs))
         println("Breaking waves by linear theory...")
-        Hb, θ_b, depthb = BreakingPropagation(Hs, Tp, θ_w, auxAng, auxDepth, "spectral")
+        for i in myIter
+            Hb[i:i+100], θ_b[i:i+100], depthb[i:i+100] = BreakingPropagation(Hs, Tp, θ_w, auxAng, auxDepth, "spectral")
+        end
+        Hb[myIter[end]+1:end], θ_b[myIter[end]+1:end], depthb[myIter[end]+1:end] = BreakingPropagation(Hs, Tp, θ_w, auxAng, auxDepth, "spectral")
     else
         Hb, Tp, Hs, depthb = ncread(wavF, "Hb"), ncread(wavF, "Tp"), ncread(wavF, "Hs"), ncread(wavF, "hb")
     end
