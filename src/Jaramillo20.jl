@@ -137,8 +137,11 @@ function cal_Jaramillo20()
     configF = dats*"config.nc"
 
     dt = ncread(configF, "dt")[1]
-    calPar = ncread(configF, "calPar")[1]
+
+    calYi = ncread(configF, "calYi")[1]
     
+    calVlt = ncread(configF, "calVlt")[1]
+
     brk, angBati, depth, D50 = ncread(configF, "brk")[1], ncread(configF, "angBati")[1], ncread(configF, "depth")[1], ncread(configF, "D50")[1]
 
     MetObj = ncread(configF, "MetObj")[1]
@@ -199,7 +202,7 @@ function cal_Jaramillo20()
     popr = Dict()
     objr = Dict()
 
-    if calPar == 4
+    if calYi == 0 && calVlt == 0
         vlt = ncread(configF, "vlt")[1]
         function Calibra_4r(Χ)
             Ymd = Jaramillo20(E, dt, -exp(Χ[1]), exp(Χ[2]), -exp(Χ[3]), -exp(Χ[4]), Y_obs[1], vlt)
@@ -234,41 +237,41 @@ function cal_Jaramillo20()
                             # Method = :simultaneous_perturbation_stochastic_approximation,
                             SearchRange = boundsr,
                             NumDimensions = 4,
-                            PopulationSize = 500,
-                            MaxSteps = 5000,
+                            PopulationSize = 5000,
+                            MaxSteps = 50000,
                             FitnessTolerance = 1e-6,
                             FitnessScheme=ParetoFitnessScheme{2}(is_minimizing=true),
                             TraceMode=:compact,
                             ϵ=0.1,
                             τ = 0.05,
-                            MaxStepsWithoutEpsProgress = 10000,
+                            MaxStepsWithoutEpsProgress = 100000,
                             Method=:borg_moea)
         elseif MetObj == "Triple"
             resr = bboptimize(Calibra_4r; 
                             # Method = :simultaneous_perturbation_stochastic_approximation,
                             SearchRange = boundsr,
                             NumDimensions = 4,
-                            PopulationSize = 500,
-                            MaxSteps = 5000,
+                            PopulationSize = 5000,
+                            MaxSteps = 50000,
                             FitnessTolerance = 1e-6,
                             FitnessScheme=ParetoFitnessScheme{3}(is_minimizing=true),
                             TraceMode=:compact,
                             ϵ=0.1,
                             τ = 0.05,
-                            MaxStepsWithoutEpsProgress = 10000,
+                            MaxStepsWithoutEpsProgress = 100000,
                             Method=:borg_moea)
         else
             resr = bboptimize(Calibra_4r; 
                             Method = :adaptive_de_rand_1_bin,
                             SearchRange = boundsr,
                             NumDimensions = 4,
-                            PopulationSize = 500,
-                            MaxSteps = 5000,
+                            PopulationSize = 5000,
+                            MaxSteps = 50000,
                             FitnessTolerance = 1e-6,
                             TraceMode=:compact,
                             ϵ=0.1,
                             τ = 0.05,
-                            MaxStepsWithoutEpsProgress = 10000)
+                            MaxStepsWithoutEpsProgress = 100000)
         end
 
         objr = best_fitness(resr)
@@ -381,7 +384,7 @@ function cal_Jaramillo20()
                     atts = MSS_atts)
         ncwrite([aMSS], output, "MSS")
 
-    elseif calPar == 5
+    elseif calYi == 1 && calVlt == 0 
         vlt = ncread(configF, "vlt")[1]
         function Calibra_5r(Χ)
             Ymd = Jaramillo20(E, dt, -exp(Χ[1]), exp(Χ[2]), -exp(Χ[3]), -exp(Χ[4]), Χ[5], vlt)
@@ -417,41 +420,41 @@ function cal_Jaramillo20()
                             # Method = :simultaneous_perturbation_stochastic_approximation,
                             SearchRange = boundsr,
                             NumDimensions = 5,
-                            PopulationSize = 500,
-                            MaxSteps = 5000,
+                            PopulationSize = 5000,
+                            MaxSteps = 50000,
                             FitnessTolerance = 1e-6,
                             FitnessScheme=ParetoFitnessScheme{2}(is_minimizing=true),
                             TraceMode=:compact,
                             ϵ=0.1,
                             τ = 0.05,
-                            MaxStepsWithoutEpsProgress = 10000,
+                            MaxStepsWithoutEpsProgress = 100000,
                             Method=:borg_moea)
         elseif MetObj == "Triple"
             resr = bboptimize(Calibra_5r; 
                             # Method = :simultaneous_perturbation_stochastic_approximation,
                             SearchRange = boundsr,
                             NumDimensions = 5,
-                            PopulationSize = 500,
-                            MaxSteps = 5000,
+                            PopulationSize = 5000,
+                            MaxSteps = 50000,
                             FitnessTolerance = 1e-6,
                             FitnessScheme=ParetoFitnessScheme{3}(is_minimizing=true),
                             TraceMode=:compact,
                             ϵ=0.1,
                             τ = 0.05,
-                            MaxStepsWithoutEpsProgress = 10000,
+                            MaxStepsWithoutEpsProgress = 100000,
                             Method=:borg_moea)
         else
             resr = bboptimize(Calibra_5r; 
                             Method = :adaptive_de_rand_1_bin,
                             SearchRange = boundsr,
                             NumDimensions = 5,
-                            PopulationSize = 500,
-                            MaxSteps = 5000,
+                            PopulationSize = 5000,
+                            MaxSteps = 50000,
                             FitnessTolerance = 1e-6,
                             TraceMode=:compact,
                             ϵ=0.1,
                             τ = 0.05,
-                            MaxStepsWithoutEpsProgress = 10000)
+                            MaxStepsWithoutEpsProgress = 100000)
         end
 
         objr = best_fitness(resr)
@@ -562,7 +565,7 @@ function cal_Jaramillo20()
                     atts = MSS_atts)
         ncwrite([aMSS], output, "MSS_flagP="*string(i))
 
-    elseif calPar == 6
+    elseif calYi == 1 && calVlt == 1
         function Calibra_6r(Χ)
             Ymd = Jaramillo20(E, dt, -exp(Χ[1]), exp(Χ[2]), -exp(Χ[3]), -exp(Χ[4]), Χ[5], Χ[6])
             YYsl = Ymd[idx_obs]
@@ -598,41 +601,41 @@ function cal_Jaramillo20()
                             # Method = :simultaneous_perturbation_stochastic_approximation,
                             SearchRange = boundsr,
                             NumDimensions = 6,
-                            PopulationSize = 500,
-                            MaxSteps = 5000,
+                            PopulationSize = 5000,
+                            MaxSteps = 50000,
                             FitnessTolerance = 1e-6,
                             FitnessScheme=ParetoFitnessScheme{2}(is_minimizing=true),
                             TraceMode=:compact,
                             ϵ=0.1,
                             τ = 0.05,
-                            MaxStepsWithoutEpsProgress = 10000,
+                            MaxStepsWithoutEpsProgress = 100000,
                             Method=:borg_moea)
         elseif MetObj == "Triple"
             resr = bboptimize(Calibra_6r; 
                             # Method = :simultaneous_perturbation_stochastic_approximation,
                             SearchRange = boundsr,
                             NumDimensions = 6,
-                            PopulationSize = 500,
-                            MaxSteps = 5000,
+                            PopulationSize = 5000,
+                            MaxSteps = 50000,
                             FitnessTolerance = 1e-6,
                             FitnessScheme=ParetoFitnessScheme{3}(is_minimizing=true),
                             TraceMode=:compact,
                             ϵ=0.1,
                             τ = 0.05,
-                            MaxStepsWithoutEpsProgress = 10000,
+                            MaxStepsWithoutEpsProgress = 100000,
                             Method=:borg_moea)
         else
             resr = bboptimize(Calibra_6r; 
                             Method = :adaptive_de_rand_1_bin,
                             SearchRange = boundsr,
                             NumDimensions = 6,
-                            PopulationSize = 500,
-                            MaxSteps = 5000,
+                            PopulationSize = 5000,
+                            MaxSteps = 50000,
                             FitnessTolerance = 1e-6,
                             TraceMode=:compact,
                             ϵ=0.1,
                             τ = 0.05,
-                            MaxStepsWithoutEpsProgress = 10000)
+                            MaxStepsWithoutEpsProgress = 100000)
         end
 
         objr = best_fitness(resr)
@@ -722,6 +725,186 @@ function cal_Jaramillo20()
                     "len", 1,
                     atts = vlt_atts)
         ncwrite([popr[6]], output, "vlt")
+        nccreate(output, "cacr",
+                    "len", 1,
+                    atts = kacr_atts)
+        ncwrite([exp(popr[3])], output, "cacr")
+        nccreate(output, "cero",
+                    "len", 1,
+                    atts = kero_atts)
+        ncwrite([exp(popr[4])], output, "cero")
+        nccreate(output, "RP",
+                    "len", 1,
+                    atts = RP_atts)
+        ncwrite([aRP], output, "RP")
+        nccreate(output, "RMSE",
+                    "len", 1,
+                    atts = RMSE_atts)
+        ncwrite([aRMSE], output, "RMSE")
+        nccreate(output, "MSS",
+                    "len", 1,
+                    atts = MSS_atts)
+        ncwrite([aMSS], output, "MSS")
+
+    elseif calYi == 0 && calVlt == 1
+        function Calibra_7r(Χ)
+            Ymd = Jaramillo20(E, dt, -exp(Χ[1]), exp(Χ[2]), -exp(Χ[3]), -exp(Χ[4]),Y_obs[1], Χ[5])
+            YYsl = Ymd[idx_obs]
+            if MetObj == "Pearson"
+                return 1 -  abs(sum((YYsl.-mean(YYsl)).*(Y_obs .- mean(Y_obs)))/(std(YYsl)*std(Y_obs)*length(YYsl)))
+            elseif MetObj == "RMSE"
+                return abs(sqrt(mean((YYsl .- Y_obs).^2))/5)
+            elseif MetObj == "MSS"
+                return sum((YYsl .- Y_obs).^2)/length(YYsl)/(var(YYsl)+var(Y_obs)+(mean(YYsl)-mean(Y_obs))^2)
+            elseif MetObj == "BSS"
+                return (mean((YYsl .- Y_obs).^2) - mean((YYref .- Y_obs).^2))/mean((YYref .- Y_obs).^2)
+            elseif MetObj == "Double"
+                return (sum((YYsl .- Y_obs).^2)/length(YYsl)/(var(YYsl)+var(Y_obs)+(mean(YYsl)-mean(Y_obs))^2), abs(sqrt(mean((YYsl .- Y_obs).^2))/5))
+            elseif MetObj == "Triple"
+                return (sum((YYsl .- Y_obs).^2)/length(YYsl)/(var(YYsl)+var(Y_obs)+(mean(YYsl)-mean(Y_obs))^2), abs(sqrt(mean((YYsl .- Y_obs).^2))/5), 1 -  abs(sum((YYsl.-mean(YYsl)).*(Y_obs .- mean(Y_obs)))/(std(YYsl)*std(Y_obs)*length(YYsl))))
+            elseif MetObj == "Double2"
+                return (sum((YYsl .- Y_obs).^2)/length(YYsl)/(var(YYsl)+var(Y_obs)+(mean(YYsl)-mean(Y_obs))^2), 1 -  abs(sum((YYsl.-mean(YYsl)).*(Y_obs .- mean(Y_obs)))/(std(YYsl)*std(Y_obs)*length(YYsl))))
+            elseif MetObj == "Double3"
+                return (abs(sqrt(mean((YYsl .- Y_obs).^2))/5), 1 -  abs(sum((YYsl.-mean(YYsl)).*(Y_obs .- mean(Y_obs)))/(std(YYsl)*std(Y_obs)*length(YYsl))))
+            end
+        end
+
+        
+        boundsr = [(log(1e-3), log(5e-1)),
+                    (log(1e-1), log(1e+2)),
+                    (log(1e-5), log(1e-1)),
+                    (log(1e-5), log(1e-1)),
+                    (-100/(365.25*24), 100/(365.25*24))]
+
+        if MetObj == "Double" || MetObj == "Double2" || MetObj == "Double3"
+            resr = bboptimize(Calibra_7r; 
+                            # Method = :simultaneous_perturbation_stochastic_approximation,
+                            SearchRange = boundsr,
+                            NumDimensions = 5,
+                            PopulationSize = 5000,
+                            MaxSteps = 50000,
+                            FitnessTolerance = 1e-6,
+                            FitnessScheme=ParetoFitnessScheme{2}(is_minimizing=true),
+                            TraceMode=:compact,
+                            ϵ=0.1,
+                            τ = 0.05,
+                            MaxStepsWithoutEpsProgress = 1000000,
+                            Method=:borg_moea)
+        elseif MetObj == "Triple"
+            resr = bboptimize(Calibra_7r; 
+                            # Method = :simultaneous_perturbation_stochastic_approximation,
+                            SearchRange = boundsr,
+                            NumDimensions = 5,
+                            PopulationSize = 5000,
+                            MaxSteps = 50000,
+                            FitnessTolerance = 1e-6,
+                            FitnessScheme=ParetoFitnessScheme{3}(is_minimizing=true),
+                            TraceMode=:compact,
+                            ϵ=0.1,
+                            τ = 0.05,
+                            MaxStepsWithoutEpsProgress = 1000000,
+                            Method=:borg_moea)
+        else
+            resr = bboptimize(Calibra_7r; 
+                            Method = :adaptive_de_rand_1_bin,
+                            SearchRange = boundsr,
+                            NumDimensions = 5,
+                            PopulationSize = 5000,
+                            MaxSteps = 50000,
+                            FitnessTolerance = 1e-6,
+                            TraceMode=:compact,
+                            ϵ=0.1,
+                            τ = 0.05,
+                            MaxStepsWithoutEpsProgress = 1000000)
+        end
+
+        objr = best_fitness(resr)
+        popr = best_candidate(resr)
+
+        Ymdr = Jaramillo20(E, dt, -exp(popr[1]), exp(popr[2]), -exp(popr[3]), -exp(popr[4]), Y_obs[1], popr[5])
+
+        Ysl = Ymdr[idx_obs]
+        aRP = sum((Ysl.-mean(Ysl)).*(Y_obs .- mean(Y_obs)))/(std(Ysl)*std(Y_obs)*length(Ysl))
+        aRMSE = sqrt(mean((Ysl .- Y_obs).^2))
+        aMSS = 1 - sum((Ysl .- Y_obs).^2)/length(Ysl)/(var(Ysl)+var(Y_obs)+(mean(Ysl)-mean(Y_obs))^2)
+
+        println("\n\n****************Writing output****************\n\n")
+
+        year_atts = Dict("long_name" => "Year")
+        month_atts = Dict("long_name" => "Month")
+        day_atts = Dict("long_name" => "Day")
+        hour_atts = Dict("long_name" => "Hour")
+        println("Writing output...")
+
+        output = wrkDir*"/results/Shoreline_JA20.nc"
+        nccreate(output, "year",
+                    "dim", length(YY),
+                    atts = year_atts)
+        ncwrite(YY, output, "year")
+        nccreate(output, "month",
+                    "dim", length(MM),
+                    atts = month_atts)
+        ncwrite(MM, output, "month")
+        nccreate(output, "day",
+                    "dim", length(DD),
+                    atts = day_atts)
+        ncwrite(DD, output, "day")
+        nccreate(output, "hour",
+                    "dim", length(HH),
+                    atts = hour_atts)
+        ncwrite(HH, output, "hour")  
+
+        Y_atts = Dict("units" => "m",
+            "long_name" => "Shoreline position",
+            "standard_name" => "Y")
+        Yi_atts = Dict("units" => "m",
+            "long_name" => "Initial shoreline position",
+            "standard_name" => "Yi")
+        kacr_atts = Dict("units" => "-",
+            "long_name" => "Accretion coefficient",
+            "standard_name" => "cacr")
+        kero_atts = Dict("units" => "-",
+            "long_name" => "Erosion coefficient",
+            "standard_name" => "cero")
+        a_atts = Dict("units" => "-",
+            "long_name" => "a parameter",
+            "standard_name" => "a")
+        b_atts = Dict("units" => "-",
+            "long_name" => "b parameter",
+            "standard_name" => "b")
+        vlt_atts = Dict("units" => "m/s",
+            "long_name" => "Longshore velocity",
+            "standard_name" => "vlt")
+        RP_atts = Dict("units" => "-",
+            "long_name" => "Pearson correlation coefficient",
+            "standard_name" => "RP")
+        RMSE_atts = Dict("units" => "m",
+            "long_name" => "Root mean square error",
+            "standard_name" => "RMSE")
+        MSS_atts = Dict("units" => "-",
+            "long_name" => "Mielke Skill Score",
+            "standard_name" => "MSS")
+
+        nccreate(output, "Y",
+                    "dim", length(Ymdr),
+                    atts = Y_atts)
+        ncwrite(Ymdr, output, "Y")
+        nccreate(output, "Yi",
+                    "len", 1,
+                    atts = Yi_atts)
+        ncwrite([Y_obs[1]], output, "Yi")
+        nccreate(output, "a",
+                    "len", 1,
+                    atts = a_atts)
+        ncwrite([exp(popr[1])], output, "a")
+        nccreate(output, "b",
+                    "len", 1,
+                    atts = b_atts)
+        ncwrite([exp(popr[2])], output, "b")
+        nccreate(output, "vlt",
+                    "len", 1,
+                    atts = vlt_atts)
+        ncwrite([popr[5]], output, "vlt")
         nccreate(output, "cacr",
                     "len", 1,
                     atts = kacr_atts)
