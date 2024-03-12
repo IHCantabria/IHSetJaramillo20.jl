@@ -1002,7 +1002,8 @@ function calVal_Jaramillo20()
 
     t_obs = DateTime.(YYo, MMo, DDo, HHo)
     t_wav = DateTime.(YY, MM, DD, HH)
-    t_split = DateTime.(YYs, MMs, DDs, HHs)
+    t_split_i = DateTime.(YYsi, MMsi, DDsi, HHsi)
+    t_split_f = DateTime.(YYsf, MMsf, DDsf, HHsf)
 
     ii =  t_obs .<= t_wav[end] .&& t_obs .>= t_wav[1]
 
