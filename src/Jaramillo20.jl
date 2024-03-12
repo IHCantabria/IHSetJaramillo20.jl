@@ -994,7 +994,9 @@ function calVal_Jaramillo20()
 
     YYo, MMo, DDo, HHo = ncread(ensF, "Y"), ncread(ensF, "M"), ncread(ensF, "D"), ncread(ensF, "h")
 
-    YYs, MMs, DDs, HHs = ncread(configF, "Ys")[1], ncread(configF, "Ms")[1], ncread(configF, "Ds")[1], ncread(configF, "hs")[1]
+    YYsi, MMsi, DDsi, HHsi = ncread(configF, "Ysi")[1], ncread(configF, "Msi")[1], ncread(configF, "Dsi")[1], ncread(configF, "hsi")[1]
+
+    YYsf, MMsf, DDsf, HHsf = ncread(configF, "Ysf")[1], ncread(configF, "Msf")[1], ncread(configF, "Dsf")[1], ncread(configF, "hsf")[1]
     
     Y_obs = ncread(ensF, "Obs")
 
@@ -1018,13 +1020,13 @@ function calVal_Jaramillo20()
 
     idx_obs = convert(Array{Int64},idx_obs)
 
-    idx_obs_split = Int(argmin(abs.(t_obs .- t_split)))
+    idx_obs_split_cal = Int(argmin(abs.(t_obs .- t_split_i))) : Int(argmin(abs.(t_obs .- t_split_f)))
 
-    idx_split = Int(argmin(abs.(t_wav .- t_split)))
+    idx_obs_split_val = [1 : Int(argmin(abs.(t_obs .- t_split_i))); : Int(argmin(abs.(t_obs .- t_split_f))) : length[idx_obs]]
 
-    t_obs_validation, Y_obs_validation, idx_obs_validation = t_obs[idx_obs_split+1:end], Y_obs[idx_obs_split+1:end], idx_obs[idx_obs_split+1:end]
+    t_obs_validation, Y_obs_validation, idx_obs_validation = t_obs[idx_obs_split_val], Y_obs[idx_obs_split_val], idx_obs[idx_obs_split_val]
 
-    t_obs, Y_obs, idx_obs = t_obs[1:idx_obs_split], Y_obs[1:idx_obs_split], idx_obs[1:idx_obs_split]
+    t_obs, Y_obs, idx_obs = t_obs[idx_obs_split_cal], Y_obs[idx_obs_split_cal], idx_obs[idx_obs_split_cal]
 
     ########## START HERE #############
 
