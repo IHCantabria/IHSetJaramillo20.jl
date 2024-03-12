@@ -1023,7 +1023,7 @@ function calVal_Jaramillo20()
 
     idx_obs_split_cal = Int(argmin(abs.(t_obs .- t_split_i))) : Int(argmin(abs.(t_obs .- t_split_f)))
 
-    idx_obs_split_val = [1 : Int(argmin(abs.(t_obs .- t_split_i))); Int(argmin(abs.(t_obs .- t_split_f))) : length[idx_obs]]
+    idx_obs_split_val = [1 : Int(argmin(abs.(t_obs .- t_split_i))); Int(argmin(abs.(t_obs .- t_split_f))) : length(idx_obs)]
 
     t_obs_validation, Y_obs_validation, idx_obs_validation = t_obs[idx_obs_split_val], Y_obs[idx_obs_split_val], idx_obs[idx_obs_split_val]
 
