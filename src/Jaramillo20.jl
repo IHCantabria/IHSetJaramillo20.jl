@@ -1121,6 +1121,7 @@ function calVal_Jaramillo20()
         aRMSE = sqrt(mean((Ysl .- Y_obs).^2))
         aMSS = 1 - sum((Ysl .- Y_obs).^2)/length(Ysl)/(var(Ysl)+var(Y_obs)+(mean(Ysl)-mean(Y_obs))^2)
 
+        Ysl = Ymdr[idx_obs_validation]
         aRP_validation = sum((Ysl.-mean(Ysl)).*(Y_obs_validation .- mean(Y_obs_validation)))/(std(Ysl)*std(Y_obs_validation)*length(Ysl))
         aRMSE_validation = sqrt(mean((Ysl .- Y_obs_validation).^2))
         aMSS_validation = 1 - sum((Ysl .- Y_obs_validation).^2)/length(Ysl)/(var(Ysl)+var(Y_obs_validation)+(mean(Ysl)-mean(Y_obs_validation))^2)
@@ -1349,6 +1350,7 @@ function calVal_Jaramillo20()
         aRMSE = sqrt(mean((Ysl .- Y_obs).^2))
         aMSS = 1 - sum((Ysl .- Y_obs).^2)/length(Ysl)/(var(Ysl)+var(Y_obs)+(mean(Ysl)-mean(Y_obs))^2)
 
+        Ysl = Ymdr[idx_obs_validation]
         aRP_validation = sum((Ysl.-mean(Ysl)).*(Y_obs_validation .- mean(Y_obs_validation)))/(std(Ysl)*std(Y_obs_validation)*length(Ysl))
         aRMSE_validation = sqrt(mean((Ysl .- Y_obs_validation).^2))
         aMSS_validation = 1 - sum((Ysl .- Y_obs_validation).^2)/length(Ysl)/(var(Ysl)+var(Y_obs_validation)+(mean(Ysl)-mean(Y_obs_validation))^2)
@@ -1574,6 +1576,7 @@ function calVal_Jaramillo20()
         aRMSE = sqrt(mean((Ysl .- Y_obs).^2))
         aMSS = 1 - sum((Ysl .- Y_obs).^2)/length(Ysl)/(var(Ysl)+var(Y_obs)+(mean(Ysl)-mean(Y_obs))^2)
 
+        Ysl = Ymdr[idx_obs_validation]
         aRP_validation = sum((Ysl.-mean(Ysl)).*(Y_obs_validation .- mean(Y_obs_validation)))/(std(Ysl)*std(Y_obs_validation)*length(Ysl))
         aRMSE_validation = sqrt(mean((Ysl .- Y_obs_validation).^2))
         aMSS_validation = 1 - sum((Ysl .- Y_obs_validation).^2)/length(Ysl)/(var(Ysl)+var(Y_obs_validation)+(mean(Ysl)-mean(Y_obs_validation))^2)
@@ -1798,6 +1801,7 @@ function calVal_Jaramillo20()
         aRMSE = sqrt(mean((Ysl .- Y_obs).^2))
         aMSS = 1 - sum((Ysl .- Y_obs).^2)/length(Ysl)/(var(Ysl)+var(Y_obs)+(mean(Ysl)-mean(Y_obs))^2)
 
+        Ysl = Ymdr[idx_obs_validation]
         aRP_validation = sum((Ysl.-mean(Ysl)).*(Y_obs_validation .- mean(Y_obs_validation)))/(std(Ysl)*std(Y_obs_validation)*length(Ysl))
         aRMSE_validation = sqrt(mean((Ysl .- Y_obs_validation).^2))
         aMSS_validation = 1 - sum((Ysl .- Y_obs_validation).^2)/length(Ysl)/(var(Ysl)+var(Y_obs_validation)+(mean(Ysl)-mean(Y_obs_validation))^2)
