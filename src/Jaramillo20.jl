@@ -1028,7 +1028,7 @@ function calVal_Jaramillo20()
 
     ########## START HERE #############
 
-    # E = Hb .^ 2
+    E = Hb .^ 2
 
     println("Starting Jaramillo et al. (2020) - Shoreline Evolution Model...")
 
