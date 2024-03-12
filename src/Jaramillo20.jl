@@ -994,7 +994,7 @@ function calVal_Jaramillo20()
 
     YYo, MMo, DDo, HHo = ncread(ensF, "Y"), ncread(ensF, "M"), ncread(ensF, "D"), ncread(ensF, "h")
 
-    YYs, MMs, DDs, HHs = ncread(configF, "Ys"), ncread(configF, "Ms"), ncread(configF, "Ds"), ncread(configF, "hs")
+    YYs, MMs, DDs, HHs = ncread(configF, "Ys")[1], ncread(configF, "Ms")[1], ncread(configF, "Ds")[1], ncread(configF, "hs")[1]
     
     Y_obs = ncread(ensF, "Obs")
 
