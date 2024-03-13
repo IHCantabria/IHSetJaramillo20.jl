@@ -242,7 +242,7 @@ function cal_Jaramillo20()
                             FitnessTolerance = 1e-6,
                             FitnessScheme=ParetoFitnessScheme{2}(is_minimizing=true),
                             TraceMode=:compact,
-                            ϵ=0.1,
+                            ϵ=0.0001,
                             τ = 0.05,
                             MaxStepsWithoutEpsProgress = 100000,
                             Method=:borg_moea)
@@ -256,7 +256,7 @@ function cal_Jaramillo20()
                             FitnessTolerance = 1e-6,
                             FitnessScheme=ParetoFitnessScheme{3}(is_minimizing=true),
                             TraceMode=:compact,
-                            ϵ=0.1,
+                            ϵ=0.0001,
                             τ = 0.05,
                             MaxStepsWithoutEpsProgress = 100000,
                             Method=:borg_moea)
@@ -269,7 +269,7 @@ function cal_Jaramillo20()
                             MaxSteps = 50000,
                             FitnessTolerance = 1e-6,
                             TraceMode=:compact,
-                            ϵ=0.1,
+                            ϵ=0.0001,
                             τ = 0.05,
                             MaxStepsWithoutEpsProgress = 100000)
         end
@@ -425,7 +425,7 @@ function cal_Jaramillo20()
                             FitnessTolerance = 1e-6,
                             FitnessScheme=ParetoFitnessScheme{2}(is_minimizing=true),
                             TraceMode=:compact,
-                            ϵ=0.1,
+                            ϵ=0.0001,
                             τ = 0.05,
                             MaxStepsWithoutEpsProgress = 100000,
                             Method=:borg_moea)
@@ -439,7 +439,7 @@ function cal_Jaramillo20()
                             FitnessTolerance = 1e-6,
                             FitnessScheme=ParetoFitnessScheme{3}(is_minimizing=true),
                             TraceMode=:compact,
-                            ϵ=0.1,
+                            ϵ=0.0001,
                             τ = 0.05,
                             MaxStepsWithoutEpsProgress = 100000,
                             Method=:borg_moea)
@@ -452,7 +452,7 @@ function cal_Jaramillo20()
                             MaxSteps = 50000,
                             FitnessTolerance = 1e-6,
                             TraceMode=:compact,
-                            ϵ=0.1,
+                            ϵ=0.0001,
                             τ = 0.05,
                             MaxStepsWithoutEpsProgress = 100000)
         end
@@ -606,7 +606,7 @@ function cal_Jaramillo20()
                             FitnessTolerance = 1e-6,
                             FitnessScheme=ParetoFitnessScheme{2}(is_minimizing=true),
                             TraceMode=:compact,
-                            ϵ=0.1,
+                            ϵ=0.0001,
                             τ = 0.05,
                             MaxStepsWithoutEpsProgress = 100000,
                             Method=:borg_moea)
@@ -620,7 +620,7 @@ function cal_Jaramillo20()
                             FitnessTolerance = 1e-6,
                             FitnessScheme=ParetoFitnessScheme{3}(is_minimizing=true),
                             TraceMode=:compact,
-                            ϵ=0.1,
+                            ϵ=0.0001,
                             τ = 0.05,
                             MaxStepsWithoutEpsProgress = 100000,
                             Method=:borg_moea)
@@ -633,7 +633,7 @@ function cal_Jaramillo20()
                             MaxSteps = 50000,
                             FitnessTolerance = 1e-6,
                             TraceMode=:compact,
-                            ϵ=0.1,
+                            ϵ=0.0001,
                             τ = 0.05,
                             MaxStepsWithoutEpsProgress = 100000)
         end
@@ -786,7 +786,7 @@ function cal_Jaramillo20()
                             FitnessTolerance = 1e-6,
                             FitnessScheme=ParetoFitnessScheme{2}(is_minimizing=true),
                             TraceMode=:compact,
-                            ϵ=0.1,
+                            ϵ=0.0001,
                             τ = 0.05,
                             MaxStepsWithoutEpsProgress = 1000000,
                             Method=:borg_moea)
@@ -800,7 +800,7 @@ function cal_Jaramillo20()
                             FitnessTolerance = 1e-6,
                             FitnessScheme=ParetoFitnessScheme{3}(is_minimizing=true),
                             TraceMode=:compact,
-                            ϵ=0.1,
+                            ϵ=0.0001,
                             τ = 0.05,
                             MaxStepsWithoutEpsProgress = 1000000,
                             Method=:borg_moea)
@@ -813,7 +813,7 @@ function cal_Jaramillo20()
                             MaxSteps = 50000,
                             FitnessTolerance = 1e-6,
                             TraceMode=:compact,
-                            ϵ=0.1,
+                            ϵ=0.0001,
                             τ = 0.05,
                             MaxStepsWithoutEpsProgress = 1000000)
         end
@@ -1082,9 +1082,9 @@ function calVal_Jaramillo20()
                             FitnessTolerance = 1e-6,
                             FitnessScheme=ParetoFitnessScheme{2}(is_minimizing=true),
                             TraceMode=:compact,
-                            ϵ=0.1,
+                            ϵ=0.0001,
                             τ = 0.05,
-                            MaxStepsWithoutEpsProgress = 100000,
+                            MaxStepsWithoutEpsProgress = 10000,
                             Method=:borg_moea)
         elseif MetObj == "Triple"
             resr = bboptimize(Calibra_4r; 
@@ -1096,7 +1096,7 @@ function calVal_Jaramillo20()
                             FitnessTolerance = 1e-6,
                             FitnessScheme=ParetoFitnessScheme{3}(is_minimizing=true),
                             TraceMode=:compact,
-                            ϵ=0.1,
+                            ϵ=0.0001,
                             τ = 0.05,
                             MaxStepsWithoutEpsProgress = 100000,
                             Method=:borg_moea)
@@ -1109,7 +1109,7 @@ function calVal_Jaramillo20()
                             MaxSteps = 50000,
                             FitnessTolerance = 1e-6,
                             TraceMode=:compact,
-                            ϵ=0.1,
+                            ϵ=0.0001,
                             τ = 0.05,
                             MaxStepsWithoutEpsProgress = 100000)
         end
@@ -1328,7 +1328,7 @@ function calVal_Jaramillo20()
                             FitnessTolerance = 1e-6,
                             FitnessScheme=ParetoFitnessScheme{2}(is_minimizing=true),
                             TraceMode=:compact,
-                            ϵ=0.1,
+                            ϵ=0.0001,
                             τ = 0.05,
                             MaxStepsWithoutEpsProgress = 100000,
                             Method=:borg_moea)
@@ -1342,7 +1342,7 @@ function calVal_Jaramillo20()
                             FitnessTolerance = 1e-6,
                             FitnessScheme=ParetoFitnessScheme{3}(is_minimizing=true),
                             TraceMode=:compact,
-                            ϵ=0.1,
+                            ϵ=0.0001,
                             τ = 0.05,
                             MaxStepsWithoutEpsProgress = 100000,
                             Method=:borg_moea)
@@ -1355,7 +1355,7 @@ function calVal_Jaramillo20()
                             MaxSteps = 50000,
                             FitnessTolerance = 1e-6,
                             TraceMode=:compact,
-                            ϵ=0.1,
+                            ϵ=0.0001,
                             τ = 0.05,
                             MaxStepsWithoutEpsProgress = 100000)
         end
@@ -1570,7 +1570,7 @@ function calVal_Jaramillo20()
                             FitnessTolerance = 1e-6,
                             FitnessScheme=ParetoFitnessScheme{2}(is_minimizing=true),
                             TraceMode=:compact,
-                            ϵ=0.1,
+                            ϵ=0.0001,
                             τ = 0.05,
                             MaxStepsWithoutEpsProgress = 100000,
                             Method=:borg_moea)
@@ -1584,7 +1584,7 @@ function calVal_Jaramillo20()
                             FitnessTolerance = 1e-6,
                             FitnessScheme=ParetoFitnessScheme{3}(is_minimizing=true),
                             TraceMode=:compact,
-                            ϵ=0.1,
+                            ϵ=0.0001,
                             τ = 0.05,
                             MaxStepsWithoutEpsProgress = 100000,
                             Method=:borg_moea)
@@ -1597,7 +1597,7 @@ function calVal_Jaramillo20()
                             MaxSteps = 50000,
                             FitnessTolerance = 1e-6,
                             TraceMode=:compact,
-                            ϵ=0.1,
+                            ϵ=0.0001,
                             τ = 0.05,
                             MaxStepsWithoutEpsProgress = 100000)
         end
@@ -1811,7 +1811,7 @@ function calVal_Jaramillo20()
                             FitnessTolerance = 1e-6,
                             FitnessScheme=ParetoFitnessScheme{2}(is_minimizing=true),
                             TraceMode=:compact,
-                            ϵ=0.1,
+                            ϵ=0.0001,
                             τ = 0.05,
                             MaxStepsWithoutEpsProgress = 1000000,
                             Method=:borg_moea)
@@ -1825,7 +1825,7 @@ function calVal_Jaramillo20()
                             FitnessTolerance = 1e-6,
                             FitnessScheme=ParetoFitnessScheme{3}(is_minimizing=true),
                             TraceMode=:compact,
-                            ϵ=0.1,
+                            ϵ=0.0001,
                             τ = 0.05,
                             MaxStepsWithoutEpsProgress = 1000000,
                             Method=:borg_moea)
@@ -1838,7 +1838,7 @@ function calVal_Jaramillo20()
                             MaxSteps = 50000,
                             FitnessTolerance = 1e-6,
                             TraceMode=:compact,
-                            ϵ=0.1,
+                            ϵ=0.0001,
                             τ = 0.05,
                             MaxStepsWithoutEpsProgress = 1000000)
         end
