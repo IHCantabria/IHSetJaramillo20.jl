@@ -238,13 +238,13 @@ function cal_Jaramillo20()
                             SearchRange = boundsr,
                             NumDimensions = 4,
                             PopulationSize = 5000,
-                            MaxSteps = 50000,
+                            MaxSteps = 25000,
                             FitnessTolerance = 1e-6,
                             FitnessScheme=ParetoFitnessScheme{2}(is_minimizing=true),
                             TraceMode=:compact,
                             ϵ=0.0001,
                             τ = 0.05,
-                            MaxStepsWithoutEpsProgress = 100000,
+                            MaxStepsWithoutEpsProgress = 5000,
                             Method=:borg_moea)
         elseif MetObj == "Triple"
             resr = bboptimize(Calibra_4r; 
@@ -252,13 +252,13 @@ function cal_Jaramillo20()
                             SearchRange = boundsr,
                             NumDimensions = 4,
                             PopulationSize = 5000,
-                            MaxSteps = 50000,
+                            MaxSteps = 25000,
                             FitnessTolerance = 1e-6,
                             FitnessScheme=ParetoFitnessScheme{3}(is_minimizing=true),
                             TraceMode=:compact,
                             ϵ=0.0001,
                             τ = 0.05,
-                            MaxStepsWithoutEpsProgress = 100000,
+                            MaxStepsWithoutEpsProgress = 5000,
                             Method=:borg_moea)
         else
             resr = bboptimize(Calibra_4r; 
@@ -266,12 +266,12 @@ function cal_Jaramillo20()
                             SearchRange = boundsr,
                             NumDimensions = 4,
                             PopulationSize = 5000,
-                            MaxSteps = 50000,
+                            MaxSteps = 25000,
                             FitnessTolerance = 1e-6,
                             TraceMode=:compact,
                             ϵ=0.0001,
                             τ = 0.05,
-                            MaxStepsWithoutEpsProgress = 100000)
+                            MaxStepsWithoutEpsProgress = 5000)
         end
 
         objr = best_fitness(resr)
@@ -421,13 +421,13 @@ function cal_Jaramillo20()
                             SearchRange = boundsr,
                             NumDimensions = 5,
                             PopulationSize = 5000,
-                            MaxSteps = 50000,
+                            MaxSteps = 25000,
                             FitnessTolerance = 1e-6,
                             FitnessScheme=ParetoFitnessScheme{2}(is_minimizing=true),
                             TraceMode=:compact,
                             ϵ=0.0001,
                             τ = 0.05,
-                            MaxStepsWithoutEpsProgress = 100000,
+                            MaxStepsWithoutEpsProgress = 5000,
                             Method=:borg_moea)
         elseif MetObj == "Triple"
             resr = bboptimize(Calibra_5r; 
@@ -435,13 +435,13 @@ function cal_Jaramillo20()
                             SearchRange = boundsr,
                             NumDimensions = 5,
                             PopulationSize = 5000,
-                            MaxSteps = 50000,
+                            MaxSteps = 25000,
                             FitnessTolerance = 1e-6,
                             FitnessScheme=ParetoFitnessScheme{3}(is_minimizing=true),
                             TraceMode=:compact,
                             ϵ=0.0001,
                             τ = 0.05,
-                            MaxStepsWithoutEpsProgress = 100000,
+                            MaxStepsWithoutEpsProgress = 5000,
                             Method=:borg_moea)
         else
             resr = bboptimize(Calibra_5r; 
@@ -449,12 +449,12 @@ function cal_Jaramillo20()
                             SearchRange = boundsr,
                             NumDimensions = 5,
                             PopulationSize = 5000,
-                            MaxSteps = 50000,
+                            MaxSteps = 25000,
                             FitnessTolerance = 1e-6,
                             TraceMode=:compact,
                             ϵ=0.0001,
                             τ = 0.05,
-                            MaxStepsWithoutEpsProgress = 100000)
+                            MaxStepsWithoutEpsProgress = 5000)
         end
 
         objr = best_fitness(resr)
@@ -602,13 +602,13 @@ function cal_Jaramillo20()
                             SearchRange = boundsr,
                             NumDimensions = 6,
                             PopulationSize = 5000,
-                            MaxSteps = 50000,
+                            MaxSteps = 25000,
                             FitnessTolerance = 1e-6,
                             FitnessScheme=ParetoFitnessScheme{2}(is_minimizing=true),
                             TraceMode=:compact,
                             ϵ=0.0001,
                             τ = 0.05,
-                            MaxStepsWithoutEpsProgress = 100000,
+                            MaxStepsWithoutEpsProgress = 5000,
                             Method=:borg_moea)
         elseif MetObj == "Triple"
             resr = bboptimize(Calibra_6r; 
@@ -616,13 +616,13 @@ function cal_Jaramillo20()
                             SearchRange = boundsr,
                             NumDimensions = 6,
                             PopulationSize = 5000,
-                            MaxSteps = 50000,
+                            MaxSteps = 25000,
                             FitnessTolerance = 1e-6,
                             FitnessScheme=ParetoFitnessScheme{3}(is_minimizing=true),
                             TraceMode=:compact,
                             ϵ=0.0001,
                             τ = 0.05,
-                            MaxStepsWithoutEpsProgress = 100000,
+                            MaxStepsWithoutEpsProgress = 5000,
                             Method=:borg_moea)
         else
             resr = bboptimize(Calibra_6r; 
@@ -630,12 +630,12 @@ function cal_Jaramillo20()
                             SearchRange = boundsr,
                             NumDimensions = 6,
                             PopulationSize = 5000,
-                            MaxSteps = 50000,
+                            MaxSteps = 25000,
                             FitnessTolerance = 1e-6,
                             TraceMode=:compact,
                             ϵ=0.0001,
                             τ = 0.05,
-                            MaxStepsWithoutEpsProgress = 100000)
+                            MaxStepsWithoutEpsProgress = 5000)
         end
 
         objr = best_fitness(resr)
@@ -782,13 +782,13 @@ function cal_Jaramillo20()
                             SearchRange = boundsr,
                             NumDimensions = 5,
                             PopulationSize = 5000,
-                            MaxSteps = 50000,
+                            MaxSteps = 25000,
                             FitnessTolerance = 1e-6,
                             FitnessScheme=ParetoFitnessScheme{2}(is_minimizing=true),
                             TraceMode=:compact,
                             ϵ=0.0001,
                             τ = 0.05,
-                            MaxStepsWithoutEpsProgress = 1000000,
+                            MaxStepsWithoutEpsProgress = 50000,
                             Method=:borg_moea)
         elseif MetObj == "Triple"
             resr = bboptimize(Calibra_7r; 
@@ -796,13 +796,13 @@ function cal_Jaramillo20()
                             SearchRange = boundsr,
                             NumDimensions = 5,
                             PopulationSize = 5000,
-                            MaxSteps = 50000,
+                            MaxSteps = 25000,
                             FitnessTolerance = 1e-6,
                             FitnessScheme=ParetoFitnessScheme{3}(is_minimizing=true),
                             TraceMode=:compact,
                             ϵ=0.0001,
                             τ = 0.05,
-                            MaxStepsWithoutEpsProgress = 1000000,
+                            MaxStepsWithoutEpsProgress = 50000,
                             Method=:borg_moea)
         else
             resr = bboptimize(Calibra_7r; 
@@ -810,12 +810,12 @@ function cal_Jaramillo20()
                             SearchRange = boundsr,
                             NumDimensions = 5,
                             PopulationSize = 5000,
-                            MaxSteps = 50000,
+                            MaxSteps = 25000,
                             FitnessTolerance = 1e-6,
                             TraceMode=:compact,
                             ϵ=0.0001,
                             τ = 0.05,
-                            MaxStepsWithoutEpsProgress = 1000000)
+                            MaxStepsWithoutEpsProgress = 50000)
         end
 
         objr = best_fitness(resr)
@@ -994,16 +994,16 @@ function calVal_Jaramillo20()
 
     YYo, MMo, DDo, HHo = ncread(ensF, "Y"), ncread(ensF, "M"), ncread(ensF, "D"), ncread(ensF, "h")
 
-    YYsi, MMsi, DDsi, HHsi = ncread(configF, "Ysi")[1], ncread(configF, "Msi")[1], ncread(configF, "Dsi")[1], ncread(configF, "hsi")[1]
+    YYsi, MMsi, DDsi= ncread(configF, "Ysi")[1], ncread(configF, "Msi")[1], ncread(configF, "Dsi")[1]
 
-    YYsf, MMsf, DDsf, HHsf = ncread(configF, "Ysf")[1], ncread(configF, "Msf")[1], ncread(configF, "Dsf")[1], ncread(configF, "hsf")[1]
+    YYsf, MMsf, DDsf = ncread(configF, "Ysf")[1], ncread(configF, "Msf")[1], ncread(configF, "Dsf")[1]
     
     Y_obs = ncread(ensF, "Obs")
 
     t_obs = DateTime.(YYo, MMo, DDo, HHo)
     t_wav = DateTime.(YY, MM, DD, HH)
-    t_split_i = DateTime.(YYsi, MMsi, DDsi, HHsi)
-    t_split_f = DateTime.(YYsf, MMsf, DDsf, HHsf)
+    t_split_i = DateTime.(YYsi, MMsi, DDsi, 0)
+    t_split_f = DateTime.(YYsf, MMsf, DDsf, 0)
 
     ii =  t_obs .<= t_wav[end] .&& t_obs .>= t_wav[1]
 
@@ -1078,7 +1078,7 @@ function calVal_Jaramillo20()
                             SearchRange = boundsr,
                             NumDimensions = 4,
                             PopulationSize = 5000,
-                            MaxSteps = 50000,
+                            MaxSteps = 25000,
                             FitnessTolerance = 1e-6,
                             FitnessScheme=ParetoFitnessScheme{2}(is_minimizing=true),
                             TraceMode=:compact,
@@ -1092,13 +1092,13 @@ function calVal_Jaramillo20()
                             SearchRange = boundsr,
                             NumDimensions = 4,
                             PopulationSize = 5000,
-                            MaxSteps = 50000,
+                            MaxSteps = 25000,
                             FitnessTolerance = 1e-6,
                             FitnessScheme=ParetoFitnessScheme{3}(is_minimizing=true),
                             TraceMode=:compact,
                             ϵ=0.0001,
                             τ = 0.05,
-                            MaxStepsWithoutEpsProgress = 100000,
+                            MaxStepsWithoutEpsProgress = 5000,
                             Method=:borg_moea)
         else
             resr = bboptimize(Calibra_4r; 
@@ -1106,12 +1106,12 @@ function calVal_Jaramillo20()
                             SearchRange = boundsr,
                             NumDimensions = 4,
                             PopulationSize = 5000,
-                            MaxSteps = 50000,
+                            MaxSteps = 25000,
                             FitnessTolerance = 1e-6,
                             TraceMode=:compact,
                             ϵ=0.0001,
                             τ = 0.05,
-                            MaxStepsWithoutEpsProgress = 100000)
+                            MaxStepsWithoutEpsProgress = 5000)
         end
 
         objr = best_fitness(resr)
@@ -1169,10 +1169,7 @@ function calVal_Jaramillo20()
                     "len", 1,
                     atts = dayv_atts)
         ncwrite([DDsi], output, "day_vi")
-        nccreate(output, "hour_vi",
-                    "len", 1,
-                    atts = hourv_atts)
-        ncwrite([HHsi], output, "hour_vi")
+        
         nccreate(output, "year_vf",
                     "len", 1,
                     atts = yearv_atts)
@@ -1185,10 +1182,7 @@ function calVal_Jaramillo20()
                     "len", 1,
                     atts = dayv_atts)
         ncwrite([DDsf], output, "day_vf")
-        nccreate(output, "hour_vf",
-                    "len", 1,
-                    atts = hourv_atts)
-        ncwrite([HHsf], output, "hour_vf")
+        
                     
         
         Y_atts = Dict("units" => "m",
@@ -1324,13 +1318,13 @@ function calVal_Jaramillo20()
                             SearchRange = boundsr,
                             NumDimensions = 5,
                             PopulationSize = 5000,
-                            MaxSteps = 50000,
+                            MaxSteps = 25000,
                             FitnessTolerance = 1e-6,
                             FitnessScheme=ParetoFitnessScheme{2}(is_minimizing=true),
                             TraceMode=:compact,
                             ϵ=0.0001,
                             τ = 0.05,
-                            MaxStepsWithoutEpsProgress = 100000,
+                            MaxStepsWithoutEpsProgress = 5000,
                             Method=:borg_moea)
         elseif MetObj == "Triple"
             resr = bboptimize(Calibra_5r; 
@@ -1338,13 +1332,13 @@ function calVal_Jaramillo20()
                             SearchRange = boundsr,
                             NumDimensions = 5,
                             PopulationSize = 5000,
-                            MaxSteps = 50000,
+                            MaxSteps = 25000,
                             FitnessTolerance = 1e-6,
                             FitnessScheme=ParetoFitnessScheme{3}(is_minimizing=true),
                             TraceMode=:compact,
                             ϵ=0.0001,
                             τ = 0.05,
-                            MaxStepsWithoutEpsProgress = 100000,
+                            MaxStepsWithoutEpsProgress = 5000,
                             Method=:borg_moea)
         else
             resr = bboptimize(Calibra_5r; 
@@ -1352,12 +1346,12 @@ function calVal_Jaramillo20()
                             SearchRange = boundsr,
                             NumDimensions = 5,
                             PopulationSize = 5000,
-                            MaxSteps = 50000,
+                            MaxSteps = 25000,
                             FitnessTolerance = 1e-6,
                             TraceMode=:compact,
                             ϵ=0.0001,
                             τ = 0.05,
-                            MaxStepsWithoutEpsProgress = 100000)
+                            MaxStepsWithoutEpsProgress = 5000)
         end
 
         objr = best_fitness(resr)
@@ -1415,10 +1409,7 @@ function calVal_Jaramillo20()
                     "len", 1,
                     atts = dayv_atts)
         ncwrite([DDsi], output, "day_vi")
-        nccreate(output, "hour_vi",
-                    "len", 1,
-                    atts = hourv_atts)
-        ncwrite([HHsi], output, "hour_vi")
+        
         nccreate(output, "year_vf",
                     "len", 1,
                     atts = yearv_atts)
@@ -1431,10 +1422,7 @@ function calVal_Jaramillo20()
                     "len", 1,
                     atts = dayv_atts)
         ncwrite([DDsf], output, "day_vf")
-        nccreate(output, "hour_vf",
-                    "len", 1,
-                    atts = hourv_atts)
-        ncwrite([HHsf], output, "hour_vf")
+        
 
         Y_atts = Dict("units" => "m",
             "long_name" => "Shoreline position",
@@ -1566,13 +1554,13 @@ function calVal_Jaramillo20()
                             SearchRange = boundsr,
                             NumDimensions = 6,
                             PopulationSize = 5000,
-                            MaxSteps = 50000,
+                            MaxSteps = 25000,
                             FitnessTolerance = 1e-6,
                             FitnessScheme=ParetoFitnessScheme{2}(is_minimizing=true),
                             TraceMode=:compact,
                             ϵ=0.0001,
                             τ = 0.05,
-                            MaxStepsWithoutEpsProgress = 100000,
+                            MaxStepsWithoutEpsProgress = 5000,
                             Method=:borg_moea)
         elseif MetObj == "Triple"
             resr = bboptimize(Calibra_6r; 
@@ -1580,13 +1568,13 @@ function calVal_Jaramillo20()
                             SearchRange = boundsr,
                             NumDimensions = 6,
                             PopulationSize = 5000,
-                            MaxSteps = 50000,
+                            MaxSteps = 25000,
                             FitnessTolerance = 1e-6,
                             FitnessScheme=ParetoFitnessScheme{3}(is_minimizing=true),
                             TraceMode=:compact,
                             ϵ=0.0001,
                             τ = 0.05,
-                            MaxStepsWithoutEpsProgress = 100000,
+                            MaxStepsWithoutEpsProgress = 5000,
                             Method=:borg_moea)
         else
             resr = bboptimize(Calibra_6r; 
@@ -1594,12 +1582,12 @@ function calVal_Jaramillo20()
                             SearchRange = boundsr,
                             NumDimensions = 6,
                             PopulationSize = 5000,
-                            MaxSteps = 50000,
+                            MaxSteps = 25000,
                             FitnessTolerance = 1e-6,
                             TraceMode=:compact,
                             ϵ=0.0001,
                             τ = 0.05,
-                            MaxStepsWithoutEpsProgress = 100000)
+                            MaxStepsWithoutEpsProgress = 5000)
         end
 
         objr = best_fitness(resr)
@@ -1657,10 +1645,7 @@ function calVal_Jaramillo20()
                     "len", 1,
                     atts = dayv_atts)
         ncwrite([DDsi], output, "day_vi")
-        nccreate(output, "hour_vi",
-                    "len", 1,
-                    atts = hourv_atts)
-        ncwrite([HHsi], output, "hour_vi")
+        
         nccreate(output, "year_vf",
                     "len", 1,
                     atts = yearv_atts)
@@ -1673,10 +1658,7 @@ function calVal_Jaramillo20()
                     "len", 1,
                     atts = dayv_atts)
         ncwrite([DDsf], output, "day_vf")
-        nccreate(output, "hour_vf",
-                    "len", 1,
-                    atts = hourv_atts)
-        ncwrite([HHsf], output, "hour_vf")
+        
 
         Y_atts = Dict("units" => "m",
             "long_name" => "Shoreline position",
@@ -1807,13 +1789,13 @@ function calVal_Jaramillo20()
                             SearchRange = boundsr,
                             NumDimensions = 5,
                             PopulationSize = 5000,
-                            MaxSteps = 50000,
+                            MaxSteps = 25000,
                             FitnessTolerance = 1e-6,
                             FitnessScheme=ParetoFitnessScheme{2}(is_minimizing=true),
                             TraceMode=:compact,
                             ϵ=0.0001,
                             τ = 0.05,
-                            MaxStepsWithoutEpsProgress = 1000000,
+                            MaxStepsWithoutEpsProgress = 50000,
                             Method=:borg_moea)
         elseif MetObj == "Triple"
             resr = bboptimize(Calibra_7r; 
@@ -1821,13 +1803,13 @@ function calVal_Jaramillo20()
                             SearchRange = boundsr,
                             NumDimensions = 5,
                             PopulationSize = 5000,
-                            MaxSteps = 50000,
+                            MaxSteps = 25000,
                             FitnessTolerance = 1e-6,
                             FitnessScheme=ParetoFitnessScheme{3}(is_minimizing=true),
                             TraceMode=:compact,
                             ϵ=0.0001,
                             τ = 0.05,
-                            MaxStepsWithoutEpsProgress = 1000000,
+                            MaxStepsWithoutEpsProgress = 50000,
                             Method=:borg_moea)
         else
             resr = bboptimize(Calibra_7r; 
@@ -1835,12 +1817,12 @@ function calVal_Jaramillo20()
                             SearchRange = boundsr,
                             NumDimensions = 5,
                             PopulationSize = 5000,
-                            MaxSteps = 50000,
+                            MaxSteps = 25000,
                             FitnessTolerance = 1e-6,
                             TraceMode=:compact,
                             ϵ=0.0001,
                             τ = 0.05,
-                            MaxStepsWithoutEpsProgress = 1000000)
+                            MaxStepsWithoutEpsProgress = 50000)
         end
 
         objr = best_fitness(resr)
@@ -1898,10 +1880,7 @@ function calVal_Jaramillo20()
                     "len", 1,
                     atts = dayv_atts)
         ncwrite([DDsi], output, "day_vi")
-        nccreate(output, "hour_vi",
-                    "len", 1,
-                    atts = hourv_atts)
-        ncwrite([HHsi], output, "hour_vi")
+        
         nccreate(output, "year_vf",
                     "len", 1,
                     atts = yearv_atts)
@@ -1914,10 +1893,7 @@ function calVal_Jaramillo20()
                     "len", 1,
                     atts = dayv_atts)
         ncwrite([DDsf], output, "day_vf")
-        nccreate(output, "hour_vf",
-                    "len", 1,
-                    atts = hourv_atts)
-        ncwrite([HHsf], output, "hour_vf")
+        
 
         Y_atts = Dict("units" => "m",
             "long_name" => "Shoreline position",
